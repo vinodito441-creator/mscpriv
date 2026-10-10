@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vinzz Player</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Vinzz">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <section class="page on" id="p-home">
+    <h1 id="hi">Halo, Vinzz</h1>
+    <div style="display:flex;justify-content:space-between;align-items:center"><h2>Lagu saya</h2><button class="pill" id="addsong">＋ Tambah lagu</button></div><input type="file" id="fi" accept="audio/*" multiple hidden>
+    <div id="hl"></div><p id="msg" role="status" style="font-size:13px;color:var(--mut);margin-top:10px"></p>
+    <h2>Mode offline</h2>
+    <div class="row" id="goOff" style="cursor:pointer"><div class="art"></div><div><b id="cnt"></b><span>Lagu yang Anda tambahkan tersimpan di perangkat ini dan bisa diputar tanpa internet.</span></div></div>
+  </section>
+  <section class="page" id="p-search"><h1>Cari</h1><div class="search"><input id="q" type="search" placeholder="Cari lagu, artis, atau album..." aria-label="Cari"><button class="pill" id="qb">Cari</button></div><div id="res" style="margin-top:14px"></div></section>
+<section class="page" id="p-off"><h1>Mode Offline</h1><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span id="oc" style="color:var(--mut);font-size:13px"></span><button class="pill" id="oa">▶ Putar Semua</button></div><div id="ol"></div></section>
+<section class="page" id="p-me"><h1>Pengaturan</h1><div id="setl"></div>
+<div class="row" style="margin-bottom:10px"><div><b>Putar Langsung</b><span>Tanpa login, ketuk lagu langsung diputar.</span></div></div>
+<div class="row" style="margin-bottom:16px;justify-content:space-between"><div><b>Auto Next</b><span>Lanjut ke lagu berikutnya otomatis.</span></div><button class="pill" id="an">Aktif</button></div>
+<h2>Aplikasi</h2><div class="kv"><span>Nama</span><b>Vinzz</b></div><div class="kv"><span>Versi</span><b>v1.1.0</b></div><div class="kv"><span>Mode Offline</span><b style="color:#2ecc71">Aktif</b></div><div class="kv"><span>Lirik tersimpan</span><b id="lc2">0</b></div>
+<button class="pill" id="cc" style="margin-top:14px">Bersihkan lirik tersimpan</button></section>
+<section class="page" id="p-stats"><h1>Statistik</h1>
+<div class="chips" id="stc"><button data-d="0">Semua</button><button data-d="7" class="on">1 minggu</button><button data-d="30">1 bulan</button><button data-d="90">3 bulan</button></div>
+<div class="sc"><small>Total waktu mendengarkan</small><b id="st1">0m 0d</b></div>
+<div class="g3"><div class="sc"><b id="st2">0</b><small>Total putar</small></div><div class="sc"><b id="st3">0</b><small>Lagu unik</small></div><div class="sc"><b id="st4">0</b><small>Artis unik</small></div></div>
+<div class="sc fav"><div class="art" id="fa1"></div><div><small>Artis favorit</small><b id="st5">-</b><span id="st5b"></span></div></div>
+<div class="sc fav"><div class="art" id="fs1"></div><div><small>Lagu favorit</small><b id="st6">-</b><span id="st6b"></span></div></div>
+<div class="sc dn"><svg id="dn" viewBox="0 0 42 42" width="130" height="130" aria-label="Diagram artis"></svg><div id="dl"></div></div>
+<h2>Mendengarkan per hari</h2><div class="sc"><div id="bars"></div></div></section>
+<section class="page" id="p-pl"><h1>Playlist</h1>
+<div class="search" id="pcr"><input id="pn" placeholder="Nama playlist baru" aria-label="Nama playlist"><button class="pill" id="pc">Buat</button></div><p id="pm" role="status" style="font-size:13px;color:var(--mut);margin-top:8px"></p>
+<div id="pls" style="margin-top:16px"></div>
+<div id="pd" hidden><button class="pill" id="pb">← Kembali</button><h2 id="pt"></h2><div style="display:flex;gap:8px;margin-bottom:12px"><button class="pill" id="pp">▶ Putar semua</button><button class="pill" id="px">Hapus playlist</button></div><div id="pi"></div></div></section>
+<div id="mini" role="button" tabindex="0" aria-label="Buka pemutar"><div class="art" id="ma"></div><div class="t"><b id="mt"></b><span id="mar"></span></div><button class="ic" id="mplay" aria-label="Putar atau jeda">▶</button><div id="mbar"></div></div>
+  <nav><button class="on" data-tab="home">Beranda</button><button data-tab="search">Cari</button><button data-tab="pl">Playlist</button><button data-tab="stats">Statistik</button><button data-tab="me">Pengaturan</button></nav>
+
+  <div id="full"><div id="bg"></div>
+<div class="top2"><button class="ib" id="close" aria-label="Tutup">⌄</button><div class="nowp"><small>Sedang diputar</small><small>Tersimpan di perangkat</small></div><button class="ib" id="more" aria-label="Opsi">⋯</button></div>
+<div id="vA"><div class="art2" id="cv" role="button" tabindex="0" aria-label="Lihat foto album"><i>♪</i></div></div>
+<div id="vB" hidden><div class="mh"><div class="art" id="ma2"></div><div class="tt3"><b id="ft2"></b><span id="fa2"></span></div><button class="ib" id="bl2" aria-label="Kembali ke sampul">🎵</button></div><div id="lbig"></div></div>
+<div class="lower">
+<div class="rowt"><div class="tt"><h3 id="ft"></h3><p id="fa"></p></div><div class="ibs"><button class="ib" id="share2" aria-label="Bagikan"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v14"/></svg></button><button class="ib hb" id="like" aria-label="Suka">♡</button></div></div>
+<div class="pr2"><input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Posisi lagu"><div class="tms"><span id="cur">0:00</span><span id="dur">-0:00</span></div></div>
+<p id="lp" style="display:none"></p>
+<div class="c3"><button class="ib" id="r2" aria-label="Ulangi">🔁</button><button id="back" aria-label="Lagu sebelumnya"><svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor"><path d="M12 5v14L2 12zM22 5v14L12 12z"/></svg></button><button class="big2" id="play" aria-label="Putar atau jeda"><svg viewBox="0 0 24 24" width="38" height="38" fill="currentColor"><path d="M6 3.5v17l14-8.5z"/></svg></button><button id="fwd" aria-label="Lagu berikutnya"><svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor"><path d="M12 5v14l10-7zM2 5v14l10-7z"/></svg></button><button class="ib" id="s2" aria-label="Kecepatan" style="font-size:14px;font-weight:800">1x</button></div>
+<div class="chips2"><button id="bq">☰ Antrean</button><button id="bt">🌙 Timer</button><button id="bl">💬 Lirik</button></div>
+<div class="vr" id="volrow"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 9v6h4l5 4V5L7 9z"/></svg><input type="range" id="vol" min="0" max="1" step="0.01" value="1" aria-label="Volume"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M3 9v6h4l5 4V5L7 9z"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span id="vp" hidden></span></div>
+</div>
+<div class="acts" style="display:none"><button class="pill" id="opt"></button><button class="pill" id="addpl"></button><button class="pill" id="lb"></button><button class="pill" id="rep"></button><button class="pill" id="spd">1x</button><button class="pill" id="edit" hidden></button><button class="pill" id="del" hidden>Hapus lagu ini</button></div></div>
+<div id="lyr"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">Lirik</h2><div class="sy"><button class="pill" id="sm" aria-label="Lirik lebih cepat">−</button><span id="so">Sync 0.0s</span><button class="pill" id="sp" aria-label="Lirik lebih lambat">+</button></div></div><div id="ll"></div><div id="tl" hidden><div id="tlbar"><span id="tlm"></span><b id="tlh"></b></div><div id="tlb"></div></div><textarea id="lt" hidden placeholder="Tempel lirik di sini..." aria-label="Lirik"></textarea><small>Lirik tidak disertakan. Tempel sendiri. Awali baris dengan [mm:ss] (format LRC) agar tampil tepat waktu.</small><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pill" id="la">✨ Sinkron otomatis</button><button class="pill" id="lt2">Tap sinkron</button><button class="pill" id="lv">⏱ Timeline</button><button class="pill" id="lw">🌐 Cari lirik sinkron</button><button class="pill" id="li">Impor .lrc</button><input type="file" id="lf" accept=".lrc,.txt,text/plain" hidden></div><p id="ln" role="status" style="font-size:12px;color:var(--mut)"></p><div style="display:flex;gap:8px"><button class="pill" id="le">Edit lirik</button><button class="pill" id="lc">Tutup</button></div></div>
+<div id="photo" hidden><div id="flash"></div><figure class="pol"><div class="pimg" id="pimg"><i>♪</i></div><figcaption id="pcap"></figcaption></figure><small>Ketuk untuk menutup</small></div>
+<div id="sheet" hidden style="position:absolute;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding:18px;z-index:9;max-height:60%;overflow-y:auto"></div>
+</div>
+<audio id="au" preload="metadata"></audio>
+<script src="script.js"></script>
+</body>
+</html>
